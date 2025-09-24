@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Şaka!</title>
+  <style>
+    body {
+      margin:0;
+      overflow:hidden;
+      background:black;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      cursor:pointer;
+    }
+    #clickText {
+      color:white;
+      font-size:24px;
+      text-align:center;
+    }
+    #jumpScare {
+      display:none;
+      width:100vw;
+      height:100vh;
+      object-fit:cover;
+    }
+  </style>
+</head>
+<body id="body">
+  <div id="clickText">Sayfayı tıklayın!</div>
+  <img id="jumpScare" src="https://i.imgur.com/3Xy9P0G.png" alt="Jump Scare" />
+  <audio id="scream" src="https://www.soundjay.com/horror/sounds/scream-01.mp3"></audio>
+
+  <script>
+    const body = document.getElementById('body');
+    const clickText = document.getElementById('clickText');
+    const jumpScare = document.getElementById('jumpScare');
+    const scream = document.getElementById('scream');
+
+    body.addEventListener('click', () => {
+      // Tam ekran
+      if (body.requestFullscreen) {
+        body.requestFullscreen();
+      }
+      // Görsel ve ses
+      clickText.style.display = 'none';
+      jumpScare.style.display = 'block';
+      scream.play();
+    });
+  </script>
+</body>
+</html>
