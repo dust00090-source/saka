@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Şaka!</title>
+  <title>Jump Scare!</title>
   <style>
     body {
       margin: 0;
@@ -12,20 +12,48 @@
       align-items: center;
       height: 100vh;
       cursor: pointer;
+      overflow: hidden;
     }
-    #message {
+    #clickText {
       color: white;
       font-size: 2rem;
     }
-    #scare {
+    #videoWrapper {
       display: none;
       width: 100vw;
       height: 100vh;
-      object-fit: cover;
+    }
+    #videoWrapper iframe {
+      width: 100%;
+      height: 100%;
     }
   </style>
 </head>
-<body>
-  <div id="message">Başlamak için tıkla 😈</div>
-  <img id="scare" src="https://i.ibb.co/tQ3Mbd1/scary-face.jpg" alt="BOO!">
-  <audio id="scream" src="https://
+<body id="body">
+  <div id="clickText">Başlamak için tıkla 😈</div>
+  <div id="videoWrapper">
+    <iframe 
+      id="jumpVid"
+      src="https://www.youtube.com/embed/3cyS6wMVCqI?autoplay=1&controls=0&rel=0&showinfo=0"
+      frameborder="0"
+      allow="autoplay; fullscreen; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <script>
+    const body = document.getElementById('body');
+    const clickText = document.getElementById('clickText');
+    const videoWrapper = document.getElementById('videoWrapper');
+
+    body.addEventListener('click', () => {
+      clickText.style.display = 'none';
+      videoWrapper.style.display = 'block';
+
+      if (body.requestFullscreen) {
+        body.requestFullscreen();
+      }
+    });
+  </script>
+</body>
+</html>
