@@ -1,52 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
+  <meta charset="UTF-8">
   <title>Şaka!</title>
   <style>
     body {
-      margin:0;
-      overflow:hidden;
-      background:black;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      height:100vh;
-      cursor:pointer;
+      margin: 0;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      cursor: pointer;
     }
-    #clickText {
-      color:white;
-      font-size:24px;
-      text-align:center;
+    #message {
+      color: white;
+      font-size: 2rem;
     }
-    #jumpScare {
-      display:none;
-      width:100vw;
-      height:100vh;
-      object-fit:cover;
+    #scare {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
     }
   </style>
 </head>
-<body id="body">
-  <div id="clickText">Sayfayı tıklayın!</div>
-  <img id="jumpScare" src="https://i.imgur.com/3Xy9P0G.png" alt="Jump Scare" />
-  <audio id="scream" src="https://www.soundjay.com/horror/sounds/scream-01.mp3"></audio>
+<body>
+  <div id="message">Başlamak için tıkla 😈</div>
+  <img id="scare" src="https://i.imgur.com/jlVoZ3p.jpg" alt="BOO!">
+  <audio id="scream" src="https://www.soundjay.com/human/sounds/scream-1.mp3"></audio>
 
   <script>
-    const body = document.getElementById('body');
-    const clickText = document.getElementById('clickText');
-    const jumpScare = document.getElementById('jumpScare');
-    const scream = document.getElementById('scream');
+    const msg = document.getElementById("message");
+    const img = document.getElementById("scare");
+    const scream = document.getElementById("scream");
 
-    body.addEventListener('click', () => {
-      // Tam ekran
-      if (body.requestFullscreen) {
-        body.requestFullscreen();
-      }
-      // Görsel ve ses
-      clickText.style.display = 'none';
-      jumpScare.style.display = 'block';
+    document.body.addEventListener("click", () => {
+      msg.style.display = "none";
+      img.style.display = "block";
       scream.play();
-    });
-  </script>
-</body>
-</html>
+      i
